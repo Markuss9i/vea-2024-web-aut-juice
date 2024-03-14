@@ -136,13 +136,22 @@ describe("Juice-shop scenarios", () => {
     })
 
     // Create scenario - Add a review
-    // Click on search icon
-    // Search for Raspberry
-    // Select a product card - Raspberry Juice (1000ml)
-    // Type in review - "Tastes like metal"
-    // Click Submit
-    // Click expand reviews button/icon (wait for reviews to appear)
-    // Validate review -  "Tastes like metal"
+    it.only("Add a review", () => { 
+      // Click on search icon
+      HomePage.search.click();
+      // Search for Raspberry
+      HomePage.inputSearch.type("Raspberry{enter}");
+      // Select a product card - Raspberry Juice (1000ml)
+      HomePage.itemRaspberryJuice.click();
+      // Type in review - "Tastes like metal"
+      HomePage.writeReview.type("Tastes like metal");
+      // Click Submit
+      HomePage.submitReview.click();
+      // Click expand reviews button/icon (wait for reviews to appear)
+      HomePage.itemExpandReview.click();
+      // Validate review -  "Tastes like metal"
+      HomePage.commentValidation.should("contain", "Tastes like metal");
+    })
 
     // Create scenario - Validate product card amount
     // Validate that the default amount of cards is 12

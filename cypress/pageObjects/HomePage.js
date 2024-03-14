@@ -71,4 +71,16 @@ export class HomePage extends BasePage {
   static get commentValidation(){
     return cy.get("div.comment");
   }
+
+  static get itemRaspberryJuice(){
+    return cy.get("[alt='Raspberry Juice (1000ml)']");
+  }
+
+  static get writeReview(){
+    return cy.get("[aria-label='Text field to review a product']");
+  }
+
+  static get submitReview(){
+    return cy.get("button#submitButton");
+  }
 }
