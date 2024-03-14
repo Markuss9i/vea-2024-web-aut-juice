@@ -63,4 +63,12 @@ export class HomePage extends BasePage {
   static get itemStrawberryJuice(){
     return cy.get("[alt='Strawberry Juice (500ml)']");
   }
+
+  static get itemExpandReview(){
+    return cy.get("[aria-label='Expand for Reviews']");
+  }
+
+  static get commentValidation(){
+    return cy.get("div.comment");
+  }
 }
