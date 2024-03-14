@@ -83,7 +83,7 @@ describe("Juice-shop scenarios", () => {
     });
 
     // Create scenario - Search 500ml and validate Lemon, while having multiple cards
-    it.only("Search 500ml and validate Lemon, while having multiple cards", () => {
+    it("Search 500ml and validate Lemon, while having multiple cards", () => {
       // Click on search icon
       HomePage.search.click();
       // Search for 500ml
@@ -96,16 +96,28 @@ describe("Juice-shop scenarios", () => {
  
 
     // Create scenario - Search 500ml and validate cards
-    // Click on search icon
-    // Search for 500ml
-    // Select a product card - Eggfruit Juice (500ml)
-    // Validate that the card (should) contains "Now with even more exotic flavour."
-    // Close the card
-    // Select a product card - Lemon Juice (500ml)
-    // Validate that the card (should) contains "Sour but full of vitamins."
-    // Close the card
-    // Select a product card - Strawberry Juice (500ml)
-    // Validate that the card (should) contains "Sweet & tasty!"
+    it("Search 500ml and validate Lemon, while having multiple cards", () => {
+      // Click on search icon
+      HomePage.search.click();
+      // Search for 500ml
+      HomePage.inputSearch.type("500ml{enter}");
+      // Select a product card - Eggfruit Juice (500ml)
+      HomePage.itemEggfruitJuice.click()
+      // Validate that the card (should) contains "Now with even more exotic flavour."
+      HomePage.itemValidation.should("contain", "Now with even more exotic flavour.")
+      // Close the card
+      HomePage.closeItemButton.click();
+      // Select a product card - Lemon Juice (500ml)
+      HomePage.itemLemonJuice.click();
+      // Validate that the card (should) contains "Sour but full of vitamins."
+      HomePage.itemValidation.should("contain", "Sour but full of vitamins");
+      // Close the card
+      HomePage.closeItemButton.click();
+      // Select a product card - Strawberry Juice (500ml)
+      HomePage.itemStrawberryJuice.click();
+      // Validate that the card (should) contains "Sweet & tasty!"
+      HomePage.itemValidation.should("contain", "Sweet & tasty!");
+    })
 
     // Create scenario - Read a review
     // Click on search icon
