@@ -1,5 +1,6 @@
 import { HomePage } from "../pageObjects/HomePage";
 import { LoginPage } from "../pageObjects/LoginPage";
+import { ProfilePage } from "../pageObjects/ProfilePage";
 import { RegistrationPage } from "../pageObjects/RegistrationPage";
 
 describe("Juice-shop scenarios", () => {
@@ -59,6 +60,8 @@ describe("Juice-shop scenarios", () => {
       // Click Account button
       HomePage.accountButton.click();
       // Validate that account name (with previously created email address) appears in the menu section
+      HomePage.profileMenuOption.click();
+      ProfilePage.emailField.should("contain", randomEmail);
     });
   });
 
@@ -70,9 +73,13 @@ describe("Juice-shop scenarios", () => {
 
     it("Search and validate Lemon", () => {
       // Click on search icon
+      HomePage.search.click();
       // Search for Lemon
+      HomePage.inputSearch.type("Lemon{enter}");
       // Select a product card - Lemon Juice (500ml)
+      HomePage.itemLemon.click();
       // Validate that the card (should) contains "Sour but full of vitamins."
+      HomePage.itemLemonValidation.should("contain", "Sour but full of vitamins");
     });
 
     // Create scenario - Search 500ml and validate Lemon, while having multiple cards
