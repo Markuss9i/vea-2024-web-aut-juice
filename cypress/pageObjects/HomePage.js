@@ -33,11 +33,21 @@ export class HomePage extends BasePage {
     return cy.get("input#mat-input-0");
   }
 
+  //3
   static get itemLemon(){
     return cy.get("[aria-label='Click for more information about the product']");
   }
 
-  static get itemLemonValidation(){
+  static get itemValidation(){
     return cy.get("[class='ng-star-inserted']");
   }
+
+  //4
+  static get itemLemonJuice(){
+    return cy.get("[alt='Lemon Juice (500ml)']");
+  }
+
+  // static get itemLemonJuiceValidation(){
+  //   return cy.get("[class='ng-star-inserted']");
+  // }
 }
